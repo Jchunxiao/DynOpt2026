@@ -18,13 +18,11 @@ Do not fork this repository. Open the Codespace directly from the green **Code**
 
 ## Materials
 
-Sessions 2 and 3 will be added to this repository before each session. To get them, run `git pull` in your Codespace terminal (see `setup/README.md`, "Between sessions").
+Sessions 2 and 3 are added to this repository before each session. To get them, run `git pull` in your Codespace terminal (see `setup/README.md`, "Between sessions").
 
 - **Session 1: Julia, optimization, and a static reservoir.** [[slides]](https://raw.githack.com/dscardoso/DynOpt2026/main/slides/session_1/DYNOPT_1_slides.html) [[notes]](https://raw.githack.com/dscardoso/DynOpt2026/main/slides/session_1/DYNOPT_1_notes.html)
-  - `exercises/s1_warmup.jl`: run along with the first part of the session, nothing to fill in
-  - `exercises/s1_inclass.jl`: the script we complete together
-  - `exercises/s1_homework.jl`: take it further after the session
-  - `solutions/`: complete versions of the in-class and homework scripts
+- **Session 2: Julia, optimization, and a static reservoir.** [[slides]](https://raw.githack.com/dscardoso/DynOpt2026/main/slides/session_2/DYNOPT_2_slides.html) [[notes]](https://raw.githack.com/dscardoso/DynOpt2026/main/slides/session_2/DYNOPT_2_notes.html)
+
 
 _Tip: to save a slide deck as PDF, open it in the browser, press `e`, then print to PDF._
 
@@ -44,6 +42,7 @@ Project.toml  the Julia environment; Manifest.toml pins every package version
 - Miranda and Fackler, *Applied Computational Economics and Finance*, MIT Press, Chapters 7--9 
 - [JuMP documentation](https://jump.dev/JuMP.jl/stable/), in particular the tutorials [Getting started with Julia](https://jump.dev/JuMP.jl/stable/tutorials/getting_started/getting_started_with_julia/) and [Getting started with JuMP](https://jump.dev/JuMP.jl/stable/tutorials/getting_started/getting_started_with_JuMP/)
 - [Julia documentation](https://docs.julialang.org/)
+- [Cardoso's lecture notes for ACE 592 ECM](https://github.com/dscardoso/ecm4ae), in particular the slides for Units 2--5, which cover computational methods to solve economic models more broadly
 
 ## Contact
 
