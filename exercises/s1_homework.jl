@@ -40,6 +40,9 @@ function who_gets_what(s)
     recreation = zeros(n)
     total      = zeros(n)
     for i in 1:n
+        farmers[i] = F(x_grid[i])
+        recreation[i] = U(s-x_grid[i])
+        total[i] = F(x_grid[i]) + U(s - x_grid[i])
         # TODO 1. Farmers receive F(x). Fill farmers[i].
 
         # TODO 2. Recreation receives U(s - x). Fill recreation[i].
@@ -88,10 +91,13 @@ function bisect_static(s)
     hi = s
     for iteration in 1:100
         mid = (lo + hi) / 2
+        if h(mid, s)<0
+            lo = mid
+        else
+            hi = mid
+        end
         # TODO 4. If h(mid, s) < 0 the root is to the right: move lo up to mid.
         #         Otherwise move hi down to mid.
-
-
     end
     return (lo + hi) / 2
 end
