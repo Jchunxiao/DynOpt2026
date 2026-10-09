@@ -48,15 +48,15 @@ function build_pieces()
     for i in 1:n
         for k in 1:m
             if X[k] <= S[i]
+                f[i, k] = F(X[k]) + U(S[i] - X[k])
+                g[i, k] = min(S[i] - X[k] + ε_rain, M) + 1
                 # TODO 1. The payoff is F(X[k]) + U(S[i] - X[k]) when the release
                 #         is feasible, and -Inf when it is not, so that an
                 #         impossible release never wins the max. Fill both branches.
-
                 # TODO 2. Next year's stock is min(S[i] - X[k] + k_rain, M).
                 #         Store its index in S, which is the stock plus one.
-
             else
-
+                f[i, k] = -Inf
                 g[i, k] = 1           # never used, because f[i, k] = -Inf
             end
         end
@@ -78,10 +78,10 @@ function backward_recursion(f, g, T)
     x_pol = zeros(Int, n, T)
     for t in T:-1:1
         for i in 1:n
+            V[i, t], k_best = findmax(f[i, :] .+ δ .* V[g[i, :], t + 1])
             # TODO 3. For every release k, the candidate value is
             #         f[i, k] + δ * V[g[i, k], t + 1]. findmax over the vector
             #         of candidates returns the best value and its index.
-
             x_pol[i, t] = X[k_best]
         end
     end
