@@ -59,12 +59,12 @@ function build_P(k_values, p)
         for i in 1:n
             if X[k] <= S[i]
                 for q in 1:length(k_values)
+                    j= min(S[i] - X[k] + k_values[q], M)+1
+                    P[k, i, j] = P +p[q]
                     # TODO 1. After releasing X[k] and receiving rain k_values[q],
                     #         the stock is min(S[i] - X[k] + k_values[q], M). Find its
                     #         index j and ADD p[q] to P[k, i, j]. Add, do not assign:
                     #         two rainfalls can land on the same stock when M binds.
-
-
                 end
             end
         end
@@ -79,11 +79,11 @@ function value_iteration(f, P; tol = 1e-10, maxit = 1000)
     x_pol = zeros(Int, n)
     for it in 1:maxit
         for i in 1:n
+            v_new[i], k_best = findmax(f[i, :] .+ δ .(P[:, i, :] * v_old[j]))
             # TODO 2. The expected value of next year's stock, one number per
             #         release k, is Σ_j P[k, i, j] v_old[j]. That is the matrix
             #         P[:, i, :] times the vector v_old. Then the same findmax as
             #         in class.
-
             x_pol[i] = X[k_best]
         end
         change = maximum(abs.(v_new .- v_old))
